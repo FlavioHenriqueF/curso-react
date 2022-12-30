@@ -1,5 +1,6 @@
 import "./App.css";
 
+import DiretaPai from "./components/comunicacao/DiretaPai";
 import UsuarioInfo from "./components/condicional/UsuarioInfo";
 import ParOuImpar from "./components/condicional/ParOuImpar";
 import TabelaProdutos from "./components/repeticao/TabelaProdutos";
@@ -11,6 +12,7 @@ import Aleatorio from "./components/basicos/Aleatorio";
 import Primeiro from "./components/basicos/Primeiro";
 import ComParametro from "./components/basicos/ComParametro";
 import Fragmento from "./components/basicos/Fragmento";
+import IndiretaPai from "./components/comunicacao/IndiretaPai";
 
 export default () => {
   return (
@@ -18,6 +20,14 @@ export default () => {
       <h1>Fundamentos React </h1>
 
       <div className="Cards">
+        <Card titulo="#10 - Comunicação Indireta" color="#22c55e">
+          <IndiretaPai></IndiretaPai>
+        </Card>
+
+        <Card titulo="#09 - Comunicação Direta" color="#22c55e">
+          <DiretaPai></DiretaPai>
+        </Card>
+
         <Card titulo="#08 - Renderização Condicional" color="#982395">
           <ParOuImpar numero={21} />
           <UsuarioInfo usuario={{ nome: "Fernando" }} />
