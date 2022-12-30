@@ -1,0 +1,21 @@
+.Tabela {
+  width: 100%;
+  background-color: black;
+}
+
+.Title {
+  font-weight: bold;
+}
+
+.Par {
+  background-color: #ddd;
+}
+
+.Impar {
+  background-color: #ccc;
+}
+
+th {
+  background-color: blue;
+  color: #fff;
+}
