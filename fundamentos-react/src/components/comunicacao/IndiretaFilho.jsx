@@ -7,7 +7,7 @@ export default (props) => {
 
   return (
     <div>
-      <button onClick={(e) => callback("João", gerarIdade, isNerd)}>
+      <button onClick={(e) => callback("João", gerarIdade(), isNerd)}>
         Fornecer Informações
       </button>
     </div>
