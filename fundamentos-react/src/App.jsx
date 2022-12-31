@@ -20,7 +20,7 @@ export default () => {
       <h1>Fundamentos React </h1>
 
       <div className="Cards">
-        <Card titulo="#10 - Comunicação Indireta" color="#22c55e">
+        <Card titulo="#10 - Comunicação Indireta" color="#991b1b">
           <IndiretaPai></IndiretaPai>
         </Card>
 
