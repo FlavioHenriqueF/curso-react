@@ -2,38 +2,48 @@ import "./Mega.css";
 import { useState } from "react";
 
 export default (props) => {
-  function mega(array) {
-    const aleatorio = Math.floor(Math.random() * (60 + 1 - 1)) + 1;
-    return array.includes(aleatorio) ? mega(array) : aleatorio;
+  function gerarNumeroNaoContido(min, max, array) {
+    const aleatorio = Math.floor(Math.random() * (max + 1 - min)) + min;
+    return array.includes(aleatorio)
+      ? gerarNumeroNaoContido(min, max, array)
+      : aleatorio;
   }
 
-  const [numeros, setNumeros] = useState([]);
-  const [repetir, setRepetir] = useState(props.qtde || 7);
-
-  const numerosMega = [];
-  function gerarNum() {
-    const qtde = repetir;
-    for (let i = 0; i < qtde; i++) {
-      numerosMega.push(mega(numerosMega));
-    }
-    return setNumeros(numerosMega.sort((n1, n2) => n1 - n2));
+  function gerarNumeros(qtde) {
+    const numeros = Array(qtde)
+      .fill(0)
+      .reduce((nums) => {
+        const novoNumero = gerarNumeroNaoContido(1, 60, nums);
+        return [...nums, novoNumero];
+      }, [])
+      .sort((n1, n2) => n1 - n2);
+    return numeros;
   }
+
+  const [qtde, setQtde] = useState(props.qtde || 6);
+  const numerosIniciais = Array(qtde).fill(0);
+  const [numeros, setNumeros] = useState(numerosIniciais);
 
   return (
     <div className="Mega">
       <h2>Mega</h2>
       <h3>{numeros.join(" ")}</h3>
       <div>
-        <label>Qnt de Números</label>
+        <label>Qtde de Números</label>
         <input
+          min="6"
+          max="15"
           type="number"
-          value={repetir}
+          value={qtde}
           onChange={(e) => {
-            setRepetir(+e.target.value);
+            setQtde(+e.target.value);
+            setNumeros(gerarNumeros(+e.target.value));
           }}
         />
       </div>
-      <button onClick={gerarNum}>Gerar Números</button>
+      <button onClick={(_) => setNumeros(gerarNumeros(qtde))}>
+        Gerar Números
+      </button>
     </div>
   );
 };
