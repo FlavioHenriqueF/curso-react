@@ -1,25 +1,7 @@
 import React, { useReducer } from "react";
 import PageTitle from "../../components/layout/PageTitle";
 
-const initialState = {
-  cart: [{}],
-  products: [{}, {}],
-  user: null,
-  number: 0,
-};
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "number_action":
-      return { ...state, number: action.payload };
-    case "login":
-      return { ...state, user: { name: action.payload } };
-    case "addN":
-      return { ...state, number: action.payload };
-    default:
-      return state;
-  }
-}
+import { initialState, reducer } from "../../store";
 
 const UseReducer = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
