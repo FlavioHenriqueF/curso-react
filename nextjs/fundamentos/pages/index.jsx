@@ -15,7 +15,13 @@ export default function Home() {
       <Navegador texto="Exemplo" destino="/exemplo" />
       <Navegador texto="JSX" destino="/jsx" cor="crimson" />
       <Navegador texto="Navegação #01" destino="/navegacao" cor="green" />
-      <Navegador texto="Navegação #02" destino="/client/sp-2/321" cor="green" />
+      <Navegador texto="Navegação #02" destino="/client/sp-2/321" cor="blue" />
+      <Navegador texto="Componente com Estado" destino="/estado" cor="pink" />
+      <Navegador
+        texto="Integração com API #01"
+        destino="/integracao"
+        cor="pink"
+      />
     </div>
   );
 }
